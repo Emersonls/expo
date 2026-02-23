@@ -309,6 +309,18 @@ We recommend avoiding the use of zoom transitions when navigating between screen
 
 </Collapsible>
 
+<Collapsible summary="Using zoom transition with Link.Preview">
+
+When using `Link.Preview` in combination with zoom transitions, the target screen must use the modal presentation - for example `presentation: 'fullScreenModal'`. This is the limitation of the underlying iOS zoom transition API. When navigating to a non-modal screen from a `Link.Preview`, the zoom transition will not work as expected and will fall back to a standard navigation transition.
+
+</Collapsible>
+
+<Collapsible summary="`usePreventZoomTransitionDismissal` cannot be used in screens with modal presentation">
+
+The `usePreventZoomTransitionDismissal` hook cannot be used in screens that have a modal presentation - for example `presentation: 'fullScreenModal'`. When used in a modal screen, the hook will not have any effect and dismissal gestures will function as normal.
+
+</Collapsible>
+
 <Collapsible summary="Single child requirement">
 
 Both `Link.AppleZoom` and `Link.AppleZoomTarget` only accept a single child component. If you attempt to pass multiple children, a warning will be logged and the component will not render properly.
